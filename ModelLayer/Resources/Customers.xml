@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Company>
+  <Employee>
+    <userID>1</userID>
+    <FirstName>Tanmay</FirstName>
+    <LastName>Patil</LastName>
+    <UserType>Normal</UserType>
+    <DiscountPercentage>0</DiscountPercentage>
+  </Employee>
+  <Employee>
+    <userID>2</userID>
+    <FirstName>Athira</FirstName>
+    <LastName>Nair</LastName>
+    <UserType>Privileged</UserType>
+    <DiscountPercentage>2</DiscountPercentage>
+  </Employee>
+</Company>
