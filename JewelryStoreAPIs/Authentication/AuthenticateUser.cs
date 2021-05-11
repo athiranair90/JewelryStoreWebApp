@@ -10,7 +10,7 @@ namespace JewelryStoreAPIs.Authentication
     public class AuthenticateUser : IAuthenticateUser
     {
 
-        private static string XMLFilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Authentication\Resources\EmployeeSecrets.xml";
+        private static string XMLFilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Resources\EmployeeSecrets.xml";
         private static UserSecrets UserSecrets;
         private static Dictionary<string, EmployeeSecrets> CustomerSecrets = new Dictionary<string, EmployeeSecrets>();
         public AuthenticateUser()

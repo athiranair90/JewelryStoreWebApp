@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ModelLayer;
-using ModelLayer.Authentication;
+using JewelryStoreAPIs.Authentication;
 using ModelLayer.EmployeeFromXML;
 
 namespace JewelryStoreAPIs
