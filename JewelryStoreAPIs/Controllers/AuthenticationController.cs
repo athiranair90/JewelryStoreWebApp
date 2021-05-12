@@ -26,15 +26,15 @@ namespace JewelryStoreAPIs.Controllers
 
         // GET: api/StoreAPI/5
         [HttpGet("details")]
-        public HttpResponseMessage CheckValidUser(string id, string password)
+        public IActionResult CheckValidUser(string id, string password)
         {
             if (_authenticateUser.CheckValidUser(id, password))
             {
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return Ok();
                 //Request.CreateResponse(HttpStatusCode.OK, stud);
                 //ret = customerProvider.GetACustomer(id);
             }
-            return new HttpResponseMessage(HttpStatusCode.NotFound);
+            return NotFound();
         }
 
         //// GET: api/StoreAPI/5

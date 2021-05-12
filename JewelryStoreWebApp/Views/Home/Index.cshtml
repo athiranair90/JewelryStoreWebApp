@@ -1,8 +1,47 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model JewelryStoreWebApp.Controllers.ViewModels.StoreViewModel
+@{
+    ViewData["Title"] = "Jewellery Store";
 }
+<h1>@ViewData["Title"]</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-md-12">
+
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="text-sm-right">
+                <label asp-for="userType">Welcome : @Model.userType </label>
+                <input asp-for="userType" type="hidden" value="@Model.userType"/>
+            </div>
+            <div>
+                <label asp-for="GoldPrice">Gold Price (per gram)</label>
+                <input asp-for="GoldPrice" />
+                <span asp-validation-for="GoldPrice" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label asp-for="Weight">Weight (grams)</label>
+                <input asp-for="Weight" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="TotalPrice">Total Price</label>
+                <input asp-for="TotalPrice" disabled value="@Model.TotalPrice"/>
+                <span asp-validation-for="TotalPrice" class="text-danger">  </span>
+            </div>
+            <div>
+                <label asp-for="DiscountRate">Discount %</label>
+                <input asp-for="DiscountRate" />
+                <span asp-validation-for="DiscountRate" class="text-danger"></span>
+            </div>
+            <div class="relative">
+                <p>
+                    <input type="submit" value="Calculate" />
+                    <button class="navitem">Item 2</button>
+                    <button class="navitem">Item 3</button>
+                </p>
+            </div>
+
+        </form>
+    </div>
 </div>

@@ -1,0 +1,32 @@
+﻿@model JewelryStoreWebApp.Controllers.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<h2>Login</h2>
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" asp-controller="Login" asp-action="Login"
+              asp-route-returnurl="@Model.ReturnUrl">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div>
+                <label asp-for="Username"></label>
+                <input asp-for="Username" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+
+            <div>
+                <label asp-for="Password"></label>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <input type="submit" value="Login" />
+        </form>
+    </div>
+</div>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
