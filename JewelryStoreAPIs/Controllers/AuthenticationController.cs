@@ -31,8 +31,6 @@ namespace JewelryStoreAPIs.Controllers
             if (_authenticateUser.CheckValidUser(id, password))
             {
                 return Ok();
-                //Request.CreateResponse(HttpStatusCode.OK, stud);
-                //ret = customerProvider.GetACustomer(id);
             }
             return NotFound();
         }

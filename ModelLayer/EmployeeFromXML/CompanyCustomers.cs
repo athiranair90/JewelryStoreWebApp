@@ -17,7 +17,6 @@ namespace ModelLayer.EmployeeFromXML
         private static Dictionary<string, Employees> CustomerDetails = new Dictionary<string, Employees>();
         public CompanyCustomers()
         {
-            //CreatedOn = DateTime.Now.ToString();
             Customers = SharedMethods.LoadDataModel<Company>(XMLFilePath);
             CustomerDetails = SharedMethods.GetCustomerDetails(Customers);
         }
@@ -35,20 +34,6 @@ namespace ModelLayer.EmployeeFromXML
             }
             return null;
         }
-
-        //public void LoadDataModel(string filePath)
-        //{
-        //    if (CustomerDetails.Count == 0)
-        //    {
-
-        //        Console.WriteLine("Inside" + CreatedOn);
-        //        Customers = SharedMethods.DeserializeToObject<Company>(filePath);
-        //        CustomerDetails = SharedMethods.GetCustomerDetails(Customers);
-        //    }
-
-        //    Console.WriteLine("Ouside"+CreatedOn);
-        //}
-
         
     }
 }

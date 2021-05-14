@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JewelryStoreWebApp.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,11 @@ namespace JewelryStoreWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddMvc(
+                Configuration => {
+                    Configuration.Filters.Add(typeof(CustomExceptionFilter));
+                    }
+                );
             //services.AddIdentity<IdentityUser, IdentityRole>();
 
         }

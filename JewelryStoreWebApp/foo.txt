@@ -1,0 +1,6 @@
+Customer Name : Athira Nair
+Customer Type : Privileged
+Gold Price : 4
+Weight : 4
+Discount Rate : 2 %
+Total Price : 15.68

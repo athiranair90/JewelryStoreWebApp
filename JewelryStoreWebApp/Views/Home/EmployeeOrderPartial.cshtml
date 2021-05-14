@@ -1,0 +1,48 @@
+﻿@model JewelryStoreWebApp.Controllers.ViewModels.PrintViewModel
+
+<div class="modal-header text-white">
+    <h4 class="modal-title">Order Details</h4>
+    <button type="button" class="btn-close btn-close-white" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+
+<div class="modal-body text-white">
+
+    <div class="text-white">
+        <div class="row">
+            <div class="col">@Html.LabelFor(model => model.CustomerName)</div>
+            <div class="col">@Model.CustomerName</div>
+        </div>
+        <div class="row">
+            <div class="col">@Html.LabelFor(model => model.userType)</div>
+            <div class="col">@Model.CustomerType.ToString()</div>
+        </div>
+        <div class="row">
+            <div class="col">@Html.LabelFor(model => model.GoldPrice)</div>
+            <div class="col">@Model.GoldPrice</div>
+        </div>
+        <div class="row">
+            <div class="col">@Html.LabelFor(model => model.Weight)</div>
+            <div class="col">@Model.Weight</div>
+        </div>
+        <div class="row">
+            <div class="col">@Html.LabelFor(model => model.DiscountRate)</div>
+            <div class="col">@Model.DiscountRate</div>
+        </div>
+        <div class="row">
+            <div class="col">@Html.LabelFor(model => model.TotalPrice)</div>
+            <div class="col">@Model.TotalPrice</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+</div>
+
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+}

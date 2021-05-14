@@ -10,13 +10,13 @@ namespace JewelryStoreAPIs.Authentication
     public class AuthenticateUser : IAuthenticateUser
     {
 
-        private static string XMLFilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Resources\EmployeeSecrets.xml";
+        private static string XMLFilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\Authentication\Resource\EmployeeSecrets.xml";
         private static UserSecrets UserSecrets;
-        private static Dictionary<string, EmployeeSecrets> CustomerSecrets = new Dictionary<string, EmployeeSecrets>();
+        internal static Dictionary<string, EmployeeSecrets> CustomerSecrets = new Dictionary<string, EmployeeSecrets>();
         public AuthenticateUser()
         {
             UserSecrets = CustomerSecrets.Count == 0 ? SharedMethods.LoadDataModel<UserSecrets>(XMLFilePath) : UserSecrets;
-            CustomerSecrets = SharedMethods.GetCustomerSecret(UserSecrets);
+            CustomerSecrets = GetCustomerSecret(UserSecrets);
         }
 
         public Dictionary<string,string> GetUserPasswordOfUser(UserSecrets users)
@@ -41,5 +41,16 @@ namespace JewelryStoreAPIs.Authentication
             }
             return isCorrect;
         }
+
+        public Dictionary<string, EmployeeSecrets> GetCustomerSecret(UserSecrets users)
+        {
+            Dictionary<string, EmployeeSecrets> valuePairs = new Dictionary<string, EmployeeSecrets>();
+            foreach (EmployeeSecrets employee in users.employees)
+            {
+                valuePairs.Add(employee.UserID, employee);
+            }
+            return valuePairs;
+        }
+
     }
 }

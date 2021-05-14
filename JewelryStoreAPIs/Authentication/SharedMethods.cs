@@ -48,14 +48,6 @@ namespace JewelryStoreAPIs
 
             return seririzedObj;
         }
-        public static Dictionary<string, EmployeeSecrets> GetCustomerSecret(UserSecrets users)
-        {
-            Dictionary<string, EmployeeSecrets> valuePairs = new Dictionary<string, EmployeeSecrets>();
-            foreach (EmployeeSecrets employee in users.employees)
-            {
-                valuePairs.Add(employee.UserID, employee);
-            }
-            return valuePairs;
-        }
+        
     }
 }

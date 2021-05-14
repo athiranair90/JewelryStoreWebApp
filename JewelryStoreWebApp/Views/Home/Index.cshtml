@@ -4,44 +4,59 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<div class="row">
+<div class="form-horizontal">
     <div class="col-md-12">
 
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="text-sm-right">
                 <label asp-for="userType">Welcome : @Model.userType </label>
-                <input asp-for="userType" type="hidden" value="@Model.userType"/>
+                <input asp-for="userType" type="hidden" value="@Model.userType" />
             </div>
-            <div>
+            <div class="form-group">
                 <label asp-for="GoldPrice">Gold Price (per gram)</label>
                 <input asp-for="GoldPrice" />
                 <span asp-validation-for="GoldPrice" class="text-danger"></span>
             </div>
-
-            <div>
+            <div class="form-group">
                 <label asp-for="Weight">Weight (grams)</label>
                 <input asp-for="Weight" />
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
-            <div>
+            @if (Model.CustomerType == JewelryStoreWebApp.Controllers.UserType.Privileged)
+            {
+                <div class="form-group">
+                    <label asp-for="DiscountRate">Discount %</label>
+                    <input asp-for="DiscountRate" disabled />
+                    <span asp-validation-for="DiscountRate" class="text-danger"></span>
+                </div>
+            }
+            <div class="form-group">
                 <label asp-for="TotalPrice">Total Price</label>
-                <input asp-for="TotalPrice" disabled value="@Model.TotalPrice"/>
+                <input asp-for="TotalPrice" disabled value="@Model.TotalPrice" />
                 <span asp-validation-for="TotalPrice" class="text-danger">  </span>
             </div>
-            <div>
-                <label asp-for="DiscountRate">Discount %</label>
-                <input asp-for="DiscountRate" />
-                <span asp-validation-for="DiscountRate" class="text-danger"></span>
-            </div>
-            <div class="relative">
-                <p>
-                    <input type="submit" value="Calculate" />
-                    <button class="navitem">Item 2</button>
-                    <button class="navitem">Item 3</button>
-                </p>
-            </div>
 
+            <div class="form-group relative">
+                <p>
+                    <input type="submit" formaction="/Home/Calculate" value="Calculate" class="btn btn-primary" />
+                </p>
+                <div class="btn btn-primary cursor-pointer popup" data-url="/Home/PrintToScreen" data-toggle="modal" data-target="#modal-order-details" id="UserModel">Print To Screen</div>
+                <input type="button" onclick="location.href='@Url.Action("PrintToFile", "Home", new { model = @Model })'" value="Print To File" class="btn btn-primary" />
+                <input type="button" onclick="location.href='@Url.Action("PrintToPaper", "Home", new { model = @Model })'" value="Print To Paper" class="btn btn-primary" />
+                @*<button class="btn btn-primary cursor-pointer popup" data-url="/Home/PrintToScreen" data-toggle="modal" data-target="#modal-order-details" id="UserModel">Print To Screen</button>
+        <input type="button" formaction="/Home/PrintToFile" value="Print To File" class="btn btn-primary" />
+        <input type="button" formaction="/Home/PrintToPaper" value="Print To Paper" class="btn btn-primary" />*@
+            </div>
         </form>
-    </div>
+
+        
+    </div>@*"location.href='@Url.Action("PrintToPaper", "Home", new { model = @Model })'"PrintToFile*@
 </div>
+
+
+<partial name="_Modal" />
+@section Scripts{
+    <script src="~/js/UserModel.js" asp-append-version="true"></script>
+}
+

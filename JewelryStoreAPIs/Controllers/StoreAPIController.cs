@@ -40,7 +40,7 @@ namespace JewelryStoreAPIs.Controllers
 
         // GET: api/StoreAPI/5
         [HttpGet("{id}", Name = "Get")]
-        public ActionResult Get(string id)
+        public IActionResult Get(string id)
         {
             Employees emp = new Employees();
 
@@ -51,8 +51,6 @@ namespace JewelryStoreAPIs.Controllers
             }
             return NotFound();
         }
-
-
 
 
         //// GET: api/StoreAPI/5
@@ -74,24 +72,5 @@ namespace JewelryStoreAPIs.Controllers
         //}
 
 
-        #region Later 
-        //// POST: api/StoreAPI
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        //// PUT: api/StoreAPI/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE: api/ApiWithActions/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
-        #endregion
     }
 }
