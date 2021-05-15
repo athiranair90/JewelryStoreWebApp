@@ -56,5 +56,16 @@ namespace JewelryStoreAPIs.Tests
             Assert.IsInstanceOfType(controller, typeof(NotFoundResult));
         }
 
+        [TestMethod]
+        public void Get_GetACustomerDetails_ReturnsNotFound_NotExists()
+        {
+
+            authUsers.Setup(o => o.CheckValidUser(It.IsAny<string>(), It.IsAny<string>())).Returns(false);
+            var controller = AuthenticationController.CheckValidUser("10", "Test1");
+
+            var result = controller as NotFoundResult;
+
+            Assert.IsInstanceOfType(controller, typeof(NotFoundResult));
+        }
     }
 }

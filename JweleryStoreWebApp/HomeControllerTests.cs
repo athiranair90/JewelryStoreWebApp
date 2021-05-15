@@ -1,5 +1,7 @@
 using JewelryStoreWebApp.Controllers;
+using JewelryStoreWebApp.Controllers.ViewModels;
 using JweleryStoreWebApp.Tests.Shared;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -50,6 +52,13 @@ namespace JweleryStoreWebApp.Tests
 
             // Act  
             var controller = homeController.Index();
+        }
+
+        [TestMethod]
+        public void TestMethod_PrintToScreen_ofType()
+        {
+            var controller = homeController.PrintToScreen(HelperMethods.GetStoreViewModel());
+            Assert.IsInstanceOfType(controller,typeof(ViewResult));
         }
     }
 }

@@ -21,7 +21,7 @@ namespace JewelryStoreWebApp.Controllers
         private readonly ILogger<HomeController> _logger;
 
         public IConfiguration Configuration { get; }
-        private static Employee employee;
+        internal static Employee employee;
         private static PrintViewModel printModel = new PrintViewModel();
 
         public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
@@ -73,10 +73,6 @@ namespace JewelryStoreWebApp.Controllers
             }
 
             return View(storeView);
-        }
-        public ActionResult Details()
-        {
-            return PartialView("EmployeeOrderPartial", printModel);
         }
 
         [HttpPost]
