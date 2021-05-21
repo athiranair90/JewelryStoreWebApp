@@ -103,18 +103,14 @@ namespace JewelryStoreWebApp.Controllers
                 printModel.OuputFilePath = Configuration["OutputFilePath"];
 
             }
-            model.CustomerType = employee.UserType;
-            model.DiscountRate = employee.DiscountPercent;
-            model.userType = employee.UserType.ToString() + " User";
+
             return View("Index", model);
         }
 
 
         public ActionResult PrintToScreen(StoreViewModel model)
         {
-            model.CustomerType = employee.UserType;
-            model.DiscountRate = employee.DiscountPercent;
-            model.userType = employee.UserType.ToString() + " User";
+
             return PartialView("EmployeeOrderPartial", printModel);
         }
 
@@ -128,26 +124,24 @@ namespace JewelryStoreWebApp.Controllers
                 IPrint printData = mode.PrintModeSelector(PrintTypes.TextFile);
                 printData.Print(printModel);
             }
-            model.CustomerType = employee.UserType;
-            model.DiscountRate = employee.DiscountPercent;
-            model.userType = employee.UserType.ToString() + " User";
+
             return View("Index", model);
         }
 
 
         public async Task<IActionResult> PrintToPaper(StoreViewModel model)
         {
-            //if (ModelState.IsValid)
-            //{
+
+                //if (ModelState.IsValid)
+                //{
                 IPrintModeFactory mode = new PrintMode();
                 IPrint printData = mode.PrintModeSelector(PrintTypes.PrintToFile);
                 printData.Print(printModel);
 
-            //}
-            model.CustomerType = employee.UserType;
-            model.DiscountRate = employee.DiscountPercent;
-            model.userType = employee.UserType.ToString() + " User";
-            return View("Index", model);
+                //}
+
+                return View("Index", model);
+
         }
 
 

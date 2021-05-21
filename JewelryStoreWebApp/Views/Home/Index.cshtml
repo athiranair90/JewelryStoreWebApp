@@ -9,31 +9,32 @@
 
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="text-sm-right">
-                <label asp-for="userType">Welcome : @Model.userType </label>
-                <input asp-for="userType" type="hidden" value="@Model.userType" />
+            <div class="text-sm-right row">
+                <label class="col" asp-for="userType">Welcome : @Model.userType </label>
+                <input class="col" asp-for="userType" type="hidden" value="@Model.userType" />
             </div>
-            <div class="form-group">
-                <label asp-for="GoldPrice">Gold Price (per gram)</label>
-                <input asp-for="GoldPrice" />
+            <div class="form-group row">
+                <label class="col" asp-for="GoldPrice">Gold Price (per gram)</label>
+                <input class="col" asp-for="GoldPrice" />
                 <span asp-validation-for="GoldPrice" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Weight">Weight (grams)</label>
-                <input asp-for="Weight" />
+            <div class="form-group row">
+                <label class="col" asp-for="Weight">Weight (grams)</label>
+                <input class="col" asp-for="Weight" />
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
-            @if (Model.CustomerType == JewelryStoreWebApp.Controllers.UserType.Privileged)
+            @if (Model.userType.Equals("Privileged User"))
             {
-                <div class="form-group">
-                    <label asp-for="DiscountRate">Discount %</label>
-                    <input asp-for="DiscountRate" disabled />
-                    <span asp-validation-for="DiscountRate" class="text-danger"></span>
-                </div>
+        <div class="form-group row">
+            <label class="col" asp-for="DiscountRate">Discount %</label>
+            <input class="col" asp-for="DiscountRate" disabled value="@Model.DiscountRate" />
+            <input asp-for="DiscountRate" type="hidden" value="@Model.DiscountRate" />
+            <span asp-validation-for="DiscountRate" class="text-danger"></span>
+        </div>
             }
-            <div class="form-group">
-                <label asp-for="TotalPrice">Total Price</label>
-                <input asp-for="TotalPrice" disabled value="@Model.TotalPrice" />
+            <div class="form-group row">
+                <label class="col" asp-for="TotalPrice">Total Price</label>
+                <input class="col" asp-for="TotalPrice" disabled value="@Model.TotalPrice" />
                 <span asp-validation-for="TotalPrice" class="text-danger">  </span>
             </div>
 
@@ -42,8 +43,8 @@
                     <input type="submit" formaction="/Home/Calculate" value="Calculate" class="btn btn-primary" />
                 </p>
                 <div class="btn btn-primary cursor-pointer popup" data-url="/Home/PrintToScreen" data-toggle="modal" data-target="#modal-order-details" id="UserModel">Print To Screen</div>
-                <input type="button" onclick="location.href='@Url.Action("PrintToFile", "Home", new { model = @Model })'" value="Print To File" class="btn btn-primary" />
-                <input type="button" onclick="location.href='@Url.Action("PrintToPaper", "Home", new { model = @Model })'" value="Print To Paper" class="btn btn-primary" />
+                <input type="button" onclick="location.href='@Url.Action("PrintToFile", "Home",@Model )'" value="Print To File" class="btn btn-primary" />
+                <input type="button" onclick="location.href='@Url.Action("PrintToPaper", "Home",@Model )'" value="Print To Paper" class="btn btn-primary" />
                 @*<button class="btn btn-primary cursor-pointer popup" data-url="/Home/PrintToScreen" data-toggle="modal" data-target="#modal-order-details" id="UserModel">Print To Screen</button>
         <input type="button" formaction="/Home/PrintToFile" value="Print To File" class="btn btn-primary" />
         <input type="button" formaction="/Home/PrintToPaper" value="Print To Paper" class="btn btn-primary" />*@

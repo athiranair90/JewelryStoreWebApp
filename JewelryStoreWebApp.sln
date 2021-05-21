@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelLayer", "ModelLayer\Mo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JewelryStoreAPIs.Tests", "JewelryStoreAPIs.Tests\JewelryStoreAPIs.Tests.csproj", "{6AEAEE2C-08B3-43BE-A8B7-85E3DC033D1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JweleryStoreWebApp.Tests", "JweleryStoreWebApp\JweleryStoreWebApp.Tests.csproj", "{5498F0D4-F1CA-40D3-99A6-F21A83A4ADD7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JewelryStoreWebApp.Tests", "JewelryStoreWebApp.Tests\JweleryStoreWebApp.Tests.csproj", "{5498F0D4-F1CA-40D3-99A6-F21A83A4ADD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
